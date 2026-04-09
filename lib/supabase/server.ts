@@ -10,9 +10,10 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY
  *
  */
 export function createServerSupabaseClient() {
-  const { getToken } = auth()
-
   return createClient(supabaseUrl, supabaseAnonKey, {
-    accessToken: () => getToken(),
+    accessToken: async () => {
+      const { getToken } = await auth()
+      return getToken()
+    },
   })
 }
