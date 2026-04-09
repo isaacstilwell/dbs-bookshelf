@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-cream: #F5F5F5;
   --color-ink: #0A0A0A;
   --color-terracotta: #0A0A0A;
@@ -11,6 +11,16 @@
   --font-heading: var(--font-bebas);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-cream: #111111;
+    --color-ink: #EFEFEF;
+    --color-terracotta: #EFEFEF;
+    --color-paper: #1C1C1C;
+    --color-concrete: #888888;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -18,14 +28,14 @@
 }
 
 body {
-  background-color: #F5F5F5;
-  color: #0A0A0A;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
   font-family: var(--font-space), "Courier New", monospace;
 }
 
 ::selection {
-  background-color: #0A0A0A;
-  color: #F5F5F5;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
 }
 
 button:not(:disabled),
